@@ -1,4 +1,4 @@
-# The *"The Clock"* Clock
+# The *'The Clock'* Clock
 
 > #### realtime metadata for Christian Marclay's *'The Clock'*  
 
