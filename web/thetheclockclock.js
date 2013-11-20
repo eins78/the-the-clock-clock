@@ -3,7 +3,8 @@ $(document).ready(function () {
   // Config
   // 
   var config = cfg = {
-    "refreshRate": 10 // in seconds
+    "refreshRate": 1, // in seconds
+    "debug": true
   },
       $list;
       
@@ -41,16 +42,16 @@ $(document).ready(function () {
     
     
     function findByHour(h) {
-      console.log("h: " + hour);
+      log("h", hour);
       return $list.find("[data-hour=\"" + h + "\"]");
     }
     
     function findByMinute(m) {
-      console.log("m: " + m);
+      log("m", m);
       return $hourSlots.filter("[data-minute=\"" + m + "\"]");
     }
     
-    console.log("runs! " + now);
+    log("runs! " + now);
 
     // find entries per current hour, 
     $hourSlots = findByHour(hour);
@@ -85,4 +86,19 @@ $(document).ready(function () {
     }, 1000);
     
   };
+  
+  function log(str, obj) {
+    var data;
+    if (cfg.debug) {
+      if (obj) {
+        try {
+          data = JSON.stringify(obj);
+        }
+        catch (e){
+          // ignore
+        }
+      }
+      console.log(str + (data ? ": " + data : ""));
+    }
+  }
 });
