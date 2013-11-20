@@ -1,4 +1,4 @@
-# The *'The Clock'* Clock
+# [The *'The Clock'* Clock][Web]
 
 > #### realtime metadata for Christian Marclay's *'The Clock'*  
 
@@ -6,7 +6,9 @@
 - Shows the data in a web interface, highlighting the most current entry
 - Works according to your local timezone, thus should be correct wherever the work is screened.
 
-> #### Demo: <http://code.178.is/the-the-clock-clock/>
+> #### Demo: [Web]
+
+[Web]: <http://code.178.is/the-the-clock-clock/>
 
 
 ## Links
@@ -17,7 +19,7 @@
 - <http://ask.metafilter.com/236296/Christian-Marclays-The-Clock-List-of-films>
 
 
-[Crowdsourcing The Clock]: http://theclockmarclay.wikia.com/wiki/Crowdsourcing-The-Clock
+[Crowdsourcing The Clock]: <http://theclockmarclay.wikia.com/wiki/Crowdsourcing-The-Clock>
 
 
 ## License
