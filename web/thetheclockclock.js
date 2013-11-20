@@ -35,14 +35,20 @@ $(document).ready(function () {
     // find entries per current hour, looping back in time
     while (!$hourSlots || !$hourSlots.length ) {
       $hourSlots = $list.find("[data-hour=\"" + hour + "\"]");
-      hour = (hour === 0) ? (hour - 1) : 23 ;
+      hour = (hour !== 0) ? (hour - 1) : 23 ;
     }
     
     // get current slot per minute, looping back in time
     while (!$currentSlot || !$currentSlot.length) {
       console.log(minute)
+      // if the search went back an hour
+      if (hour !== now.getHours()) {
+        // search from the end (backwards)
+        minute = 59;
+      }
+      
       $currentSlot = $hourSlots.filter("[data-minute=\"" + minute + "\"]");
-      minute = (minute === 0) ? (minute - 1) : 59 ;
+      minute = (minute !== 0) ? (minute - 1) : 59 ;
     }
     
     // done
