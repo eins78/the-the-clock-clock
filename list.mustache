@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>list</title>
+  <link rel="stylesheet" href="http://code.divshot.com/bootstrap-theme-cirrus/dist/css/bootstrap.css">
+  <style type="text/css" media="screen">
+  .current {
+    background-color: red;
+  }
+  </style>
+</head>
+<body id="list">
+  <ol>
+    {{#list}}
+    <li {{#time}}data-hour="{{24hour}}" data-minute="{{min}}"{{/time}}>
+      <ul>
+        {{#time}}<li>{{hour}}:{{min}} {{apm}}</li>{{/time}}
+        <li>{{text}}</li>
+      </ul>
+    </li>
+    {{/list}}
+  </ol>
+  <script type="text/javascript" charset="utf-8" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="thetheclockclock.js"></script>
+</body>
+</html>
