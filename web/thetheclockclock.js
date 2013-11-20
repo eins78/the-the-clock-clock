@@ -10,6 +10,7 @@ $(document).ready(function () {
   // Workflow
   //
   function workflow() {
+    console.log("runs!");
     getCurrentSlot(function ($slot) {
       $slot.addClass('current');
     
@@ -34,13 +35,16 @@ $(document).ready(function () {
     
     // find entries per current hour, looping back in time
     while (!$hourSlots || !$hourSlots.length ) {
+      console.log("h: " + hour);
       $hourSlots = $list.find("[data-hour=\"" + hour + "\"]");
+      
       hour = (hour !== 0) ? (hour - 1) : 23 ;
     }
     
     // get current slot per minute, looping back in time
     while (!$currentSlot || !$currentSlot.length) {
-      console.log(minute)
+      console.log("m: " + minute);
+      
       // if the search went back an hour
       if (hour !== now.getHours()) {
         // search from the end (backwards)
