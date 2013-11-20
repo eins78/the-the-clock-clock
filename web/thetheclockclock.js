@@ -4,7 +4,8 @@ $(document).ready(function () {
   // 
   var config = cfg = {
     "refreshRate": 10 // in seconds
-  };
+  },
+      $list = $("#list");
   
   // Workflow
   //
@@ -28,7 +29,6 @@ $(document).ready(function () {
     var now = (new Date()),
         hour = now.getHours(),
         minute = now.getMinutes(),
-        $list = $("#list"),
         $hourSlots,
         $currentSlot;
     
