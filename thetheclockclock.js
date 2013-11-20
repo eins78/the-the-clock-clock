@@ -3,22 +3,32 @@ $(document).ready(function () {
   // Config
   // 
   var config = cfg = {
-    "refreshRate": 10 // in seconds
-  };
+    "refreshRate": 1, // in seconds
+    "debug": true
+  },
+      $list;
+      
   
   // Workflow
   //
-  function workflow() {
-    getCurrentSlot(function ($slot) {
-      $slot.addClass('current');
-    
-      smoothScrollTo($slot);
-    });
-  }
+  // get list
+  $list = $("#list");
   
-  // Loop
-  // 
-  var loop = setInterval(workflow, cfg.refreshRate * 1000);
+  // runs in loop
+  (function workflow() {
+    
+    getCurrentSlot(function ($slot) {
+      
+      // highlight it
+      $list.find('.active').removeClass('active');
+      $slot.addClass('active');
+      smoothScrollTo($slot);
+
+      // loop
+      setTimeout(workflow, cfg.refreshRate * 1000);
+
+    });
+  }());
   
   // Functions
   // 
@@ -28,21 +38,41 @@ $(document).ready(function () {
     var now = (new Date()),
         hour = now.getHours(),
         minute = now.getMinutes(),
-        $list = $("#list"),
-        $hourSlots,
-        $currentSlot;
+        $hourSlots = {},
+        $currentSlot = {};
     
-    // find entries per current hour, looping back in time
-    while (!$hourSlots || !$hourSlots.length ) {
-      $hourSlots = $list.find("[data-hour=\"" + hour + "\"]");
-      hour = (hour === 0) ? (hour - 1) : 23 ;
+    
+    function findByHour(h) {
+      log("h", hour);
+      return $list.find("[data-hour=\"" + h + "\"]");
     }
     
-    // get current slot per minute, looping back in time
-    while (!$currentSlot || !$currentSlot.length) {
-      console.log(minute)
-      $currentSlot = $hourSlots.filter("[data-minute=\"" + minute + "\"]");
-      minute = (minute === 0) ? (minute - 1) : 59 ;
+    function findByMinute(m) {
+      log("m", m);
+      return $hourSlots.filter("[data-minute=\"" + m + "\"]");
+    }
+    
+    log("runs! " + now);
+
+    // find entries per current hour, 
+    $hourSlots = findByHour(hour);
+    // and current minute.
+    $currentSlot = findByMinute(minute);
+    
+    // loop back in time if nothing found
+    while (!$hourSlots.length || !$currentSlot.length) {
+        if (minute > 0) {
+          minute = minute - 1;
+          $currentSlot = findByMinute(minute);
+        }
+        else {
+          minute = 59;
+          // go back 1 hour
+          hour = (hour > 0) ? (hour - 1) : 23 ;
+          // search from the end of hour (backwards)
+          minute = 59;
+          $hourSlots = findByHour(hour);
+        }
     }
     
     // done
@@ -57,4 +87,19 @@ $(document).ready(function () {
     }, 1000);
     
   };
+  
+  function log(str, obj) {
+    var data;
+    if (cfg.debug) {
+      if (obj) {
+        try {
+          data = JSON.stringify(obj);
+        }
+        catch (e){
+          // ignore
+        }
+      }
+      console.log(str + (data ? ": " + data : ""));
+    }
+  }
 });
