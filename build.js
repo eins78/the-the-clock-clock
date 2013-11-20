@@ -47,7 +47,7 @@ function parseEntry(line) {
         "24hour": parseInt(hour, 10) + (apm==='PM' ? 12 : 0),
         "hour": parseInt(hour, 10),
         "min": parseInt(min, 10),
-        "apm": apm
+        "timestamp": hour + ':' + min + ' ' + apm
       },
       "text": text
     });

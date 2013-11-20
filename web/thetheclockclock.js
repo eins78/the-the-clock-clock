@@ -20,7 +20,8 @@ $(document).ready(function () {
     getCurrentSlot(function ($slot) {
       
       // highlight it
-      $slot.addClass('current');
+      $list.find('.active').removeClass('active');
+      $slot.addClass('active');
       smoothScrollTo($slot);
 
       // loop
