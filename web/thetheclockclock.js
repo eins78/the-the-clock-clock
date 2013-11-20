@@ -5,22 +5,28 @@ $(document).ready(function () {
   var config = cfg = {
     "refreshRate": 10 // in seconds
   },
-      $list = $("#list");
+      $list;
+      
   
   // Workflow
   //
-  function workflow() {
-    console.log("runs!");
-    getCurrentSlot(function ($slot) {
-      $slot.addClass('current');
-    
-      smoothScrollTo($slot);
-    });
-  }
+  // get list
+  $list = $("#list");
   
-  // Loop
-  // 
-  var loop = setInterval(workflow, cfg.refreshRate * 1000);
+  // runs in loop
+  (function workflow() {
+    
+    getCurrentSlot(function ($slot) {
+      
+      // highlight it
+      $slot.addClass('current');
+      smoothScrollTo($slot);
+
+      // loop
+      setTimeout(workflow, cfg.refreshRate * 1000);
+
+    });
+  }());
   
   // Functions
   // 
