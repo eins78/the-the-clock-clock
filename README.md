@@ -1,10 +1,12 @@
 # The *"The Clock"* Clock
 
-> #### realtime metadata for Christian Marclay's *'The Clock'*
+> #### realtime metadata for Christian Marclay's *'The Clock'*  
 
 - Reads data from "[Crowdsourcing The Clock]"
 - Shows the data in a web interface, highlighting the most current entry
 - Works according to your local timezone, thus should be correct wherever the work is screened.
+
+> #### Demo: <http://code.178.is/the-the-clock-clock/>
 
 
 ## Links
