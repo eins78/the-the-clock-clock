@@ -36,29 +36,41 @@ $(document).ready(function () {
     var now = (new Date()),
         hour = now.getHours(),
         minute = now.getMinutes(),
-        $hourSlots,
-        $currentSlot;
+        $hourSlots = {},
+        $currentSlot = {};
     
-    // find entries per current hour, looping back in time
-    while (!$hourSlots || !$hourSlots.length ) {
+    
+    function findByHour(h) {
       console.log("h: " + hour);
-      $hourSlots = $list.find("[data-hour=\"" + hour + "\"]");
-      
-      hour = (hour !== 0) ? (hour - 1) : 23 ;
+      return $list.find("[data-hour=\"" + h + "\"]");
     }
     
-    // get current slot per minute, looping back in time
-    while (!$currentSlot || !$currentSlot.length) {
-      console.log("m: " + minute);
-      
-      // if the search went back an hour
-      if (hour !== now.getHours()) {
-        // search from the end (backwards)
-        minute = 59;
-      }
-      
-      $currentSlot = $hourSlots.filter("[data-minute=\"" + minute + "\"]");
-      minute = (minute !== 0) ? (minute - 1) : 59 ;
+    function findByMinute(m) {
+      console.log("m: " + m);
+      return $hourSlots.filter("[data-minute=\"" + m + "\"]");
+    }
+    
+    console.log("runs! " + now);
+
+    // find entries per current hour, 
+    $hourSlots = findByHour(hour);
+    // and current minute.
+    $currentSlot = findByMinute(minute);
+    
+    // loop back in time if nothing found
+    while (!$hourSlots.length || !$currentSlot.length) {
+        if (minute > 0) {
+          minute = minute - 1;
+          $currentSlot = findByMinute(minute);
+        }
+        else {
+          minute = 59;
+          // go back 1 hour
+          hour = (hour > 0) ? (hour - 1) : 23 ;
+          // search from the end of hour (backwards)
+          minute = 59;
+          $hourSlots = findByHour(hour);
+        }
     }
     
     // done
