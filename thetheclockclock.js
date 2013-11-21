@@ -4,34 +4,83 @@ $(document).ready(function () {
   // 
   var config = cfg = {
     "refreshRate": 1, // in seconds
+    "navHeight": 60,
     "debug": true
-  },
-      $list;
-      
+  };
   
   // Workflow
   //
-  // get list
-  $list = $("#list");
+  // set up
+  var following = false,
+      started   = false,
+      $list = $("#list"),
+      $btns = $("#switch").add("#start");
+  
+  // buttons handlers
+  setupButtons();
   
   // runs in loop
-  (function workflow() {
+  function follow() {
     
-    getCurrentSlot(function ($slot) {
+    if (following) {
       
-      // highlight it
-      $list.find('.active').removeClass('active');
-      $slot.addClass('active');
-      smoothScrollTo($slot);
+      getCurrentSlot(function ($slot) {
+        log('slot', $slot);
+      
+        // highlight it
+        $list.find('.active').removeClass('active');
+      
+        $slot.addClass('active');
+        smoothScrollTo($slot);
 
-      // loop
-      setTimeout(workflow, cfg.refreshRate * 1000);
-
-    });
-  }());
+        loop();
+      });
+      
+    }
+    else {
+      loop();
+    }
+    
+  }
   
   // Functions
   // 
+  // loop
+  function loop(argument) {
+    started = true;
+    setTimeout(follow, cfg.refreshRate * 1000);
+  }
+  
+  function setupButtons() {
+    $btns.click(function (event) {
+      event.preventDefault;
+      switchMode();
+    });
+    $('a.navbar-brand').click(function () {
+      if (following) {
+        switchMode();
+        // if (scrollTo) {
+        //   scrollTo(0);
+        // }
+        return true;
+      }
+    });
+  }
+  
+  // toggle the switch
+  function switchMode() {
+    if (!started) {
+      loop();
+    }
+    following = !following;
+    $btns.find('.off').toggleClass('hidden');
+    $btns.find('.on').toggleClass('hidden');
+    
+    $("#switch")
+      .toggleClass('btn-default')
+      .toggleClass('btn-primary');
+  }
+  
   // find the current slot
   function getCurrentSlot(callback) {
     
@@ -83,8 +132,8 @@ $(document).ready(function () {
   function smoothScrollTo($element) {
     
     $('html,body').animate({
-      scrollTop: $element.offset().top
-    }, 1000);
+      scrollTop: $element.offset().top - cfg.navHeight
+    }, 1500);
     
   };
   
@@ -95,11 +144,11 @@ $(document).ready(function () {
         try {
           data = JSON.stringify(obj);
         }
-        catch (e){
-          // ignore
+        catch (err){
+          // console.log(err)
         }
       }
-      console.log(str + (data ? ": " + data : ""));
+      console.log(str + (data ? ": " + data : ""), obj ? obj : null);
     }
   }
 });
