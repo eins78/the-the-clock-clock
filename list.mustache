@@ -9,6 +9,8 @@
   <style type="text/css" media="screen">
   body {
     font-size: 1.6em;
+  .jumbotron {
+    border-bottom: 3px solid #DEE6E6;
   }
   ul, ol {
     padding:0;
@@ -28,8 +30,37 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
   <![endif]-->
 </head>
-<body id="list">
-  <ol class="list-group">
+<body>
+  
+  <div class="jumbotron">
+    <div class="container">
+      <h1>{{{title_html}}}</h1>
+      <p>{{{tagline_html}}}</p>
+      <p>
+        <a id="start" href="#follow" class="btn btn-primary btn-lg" role="button">
+          <span class="glyphicon glyphicon-time"></span> 
+          <span class="off">Start</span>
+          <span class="on hidden">Stop</span>
+          
+        </a>
+        <a href="https://github.com/eins78/the-the-clock-clock#readme" class="btn btn-default btn-lg" role="button">
+          <span class="glyphicon glyphicon-new-window"></span>
+          About
+        </a>
+        <a href="{{dataSourceUrl}}" class="btn btn-default btn-lg" role="button">
+          <span class="glyphicon glyphicon-new-window"></span>
+          {{dataSource}}
+        </a>
+      </p>
+      <p>
+        <a href="{{checkTimeUrl}}" class="btn btn-default" role="button">
+          <span class="glyphicon glyphicon-new-window"></span>
+          {{checkTime}}
+        </a>
+      </p>
+    </div>
+  </div>
+  <ol id="list" class="list-group">
     {{#list}}
     <li {{#time}}data-hour="{{24hour}}" data-minute="{{min}}"{{/time}}  class="list-group-item">
       <ul class="row">
