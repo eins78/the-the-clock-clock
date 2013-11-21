@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="/cache.manifest">
+<html>
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>The &#39;The Clock&#39; Clock — realtime metadata for Christian Marclay’s &#39;The Clock&#39;</title>
@@ -32,6 +32,16 @@
     width: 3.5em;
     display: inline-block;
   }
+  #time {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    position: fixed;
+    top: 1em;
+    left: 30%;
+    right: 30%;
+    width: 40%;
+  }
   .jumbotron {
     border-bottom: 3px solid #DEE6E6;
   }
@@ -42,7 +52,7 @@
     list-style-type: none;
   }
   .list-group-item {
-    padding: 1em 0;
+    padding: 1.5em 0 2em;
   }
   .active {
     transition-duration: 1s;
@@ -58,15 +68,25 @@
 </head>
 <body>
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">The <i>'The&nbsp;Clock'</i> Clock</a>
+      <a class="navbar-brand" href="#">
+        <b class="visible-xs">
+          <span class="glyphicon glyphicon-film"></span>
+          Clock
+        </b>
+        <span class="hidden-xs">
+          The <i>'The&nbsp;Clock'</i> Clock
+        </span>
+      </a>
     </div>
-    <a id="switch" href="#follow" class="btn btn-default navbar-btn hidden">
+    <span id="time" href="#" class="hidden">
+      <kbd class="text-muted">00:00</kbd>
+    </span>
+    <button id="switch" href="#" class="btn btn-default navbar-btn hidden">
       <span class="glyphicon glyphicon-time"></span> 
       <span class="off">Off</span>
       <span class="on hidden">On</span>
-    </a>
+    </button>
   </nav>
   
   <div id="intro" class="jumbotron">
@@ -74,12 +94,12 @@
       <h1>The <i>'The&nbsp;Clock'</i> Clock</h1>
       <p>realtime metadata for Christian&nbsp;Marclay’s <i>'The&nbsp;Clock'</i></p>
       <p>
-        <a id="start" href="#follow" class="btn btn-primary btn-lg hidden" role="button">
+        <button id="start" href="#" class="btn btn-primary btn-lg hidden" role="button">
           <span class="glyphicon glyphicon-time"></span> 
           <span class="off">Start</span>
           <span class="on hidden">Stop</span>
           
-        </a>
+        </button>
         <a href="https://github.com/eins78/the-the-clock-clock#readme" class="btn btn-default btn-lg" role="button">
           <span class="glyphicon glyphicon-new-window"></span>
           About
