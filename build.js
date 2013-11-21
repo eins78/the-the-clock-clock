@@ -4,13 +4,7 @@ var fs = require('fs-extra'),
     lineReader = require('line-reader'),
     hogan = require("hogan.js");
 
-var config = {
-      "title": "The \'The Clock\' Clock",
-      "title_html": "The <i>\'The&nbsp;Clock\'</i> Clock",
-      "tagline": "realtime metadata for Christian Marclay’s \'The Clock\'",
-      "tagline_html": "realtime metadata for Christian&nbsp;Marclay’s <i>\'The&nbsp;Clock\'</i>",
-      "navHeight": 60
-    },
+var config = require('./config.json'),
     res = [];
 
 // // what we want:
