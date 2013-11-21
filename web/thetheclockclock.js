@@ -14,7 +14,8 @@ $(document).ready(function () {
   var following = false,
       started   = false,
       $list = $("#list"),
-      $btns = $("#switch").add("#start");
+      $btns = $("#switch").add("#start"),
+      $currentSlot = {};
   
   // buttons handlers
   setupButtons();
@@ -59,11 +60,8 @@ $(document).ready(function () {
     $('a.navbar-brand').click(function () {
       if (following) {
         switchMode();
-        // if (scrollTo) {
-        //   scrollTo(0);
-        // }
-        return true;
       }
+      smoothScrollTo($('#intro'));
     });
   }
   
