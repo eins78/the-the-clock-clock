@@ -19,6 +19,10 @@ $(document).ready(function () {
   
   // buttons handlers
   setupButtons();
+  // autostart if location says 'ON'
+  if (window.location.hash === '#ON') {
+    switchMode();
+  }
   
   // runs in loop
   function follow() {
