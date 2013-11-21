@@ -10,16 +10,18 @@ $(document).ready(function () {
   
   // 'global' set up
   var following = false,  // default is OFF
+      runclock = true,
       // (jQuery) Objects
       $list = $("#list"),
       $btns = $("#switch").add("#start"),
       $time = $("#time"),
       $currentSlot = {};
   
-  // attach UI handlers
+  // run UI helpers
   setupButtons();
   setupClockUI();
-  
+  appleMobileHelper();
+    
   // autostart if location says 'ON'
   if (window.location.hash === '#ON') {
     switchMode();
@@ -92,7 +94,12 @@ $(document).ready(function () {
       $time.find('kbd').html(str);
       
       // loop
-      setTimeout(updateTime, 1000);
+      if (runclock) {
+        setTimeout(updateTime, 1000);
+      }
+      else {
+        $time.remove();
+      }
     }());
     
   }
@@ -196,6 +203,19 @@ $(document).ready(function () {
   function setLocation(str) {
     if (typeof window.location.replace === 'function') {
       window.location.replace('#' + (str || ""));
+    }
+  }
+  
+  function appleMobileHelper() {
+    if (window && window.navigator && window.navigator.userAgent) {
+      var ua = window.navigator.userAgent;
+      // if the UA says we are mobile Apple thing, 
+      if (ua.match(/iPhone|iPod|iPad/)) {
+        // set title to 'Clock' (for home screen), 
+        $('head').find('title').html('Clock');
+        // also kill the clock.
+        runclock = false;
+      }
     }
   }
   
