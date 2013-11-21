@@ -9,14 +9,40 @@
   <style type="text/css" media="screen">
   body {
     font-size: 1.6em;
+    padding-top: {{navHeight}}px;
+    padding-bottom: 100%;
+  }
+  nav.navbar-fixed-top {
+    box-shadow: 0 0 10px hsla(180, 11%, 95%, 0.34);
+  }
+  .navbar > * {
+    float: left;
+  }
+  #switch {
+    margin-right: 10px;
+    float: right;
+  }
+  #switch .off,
+  #switch .on {
+    width: 2em;
+    display: inline-block;
+  }
+  #start .off,
+  #start .on {
+    width: 3.5em;
+    display: inline-block;
+  }
   .jumbotron {
     border-bottom: 3px solid #DEE6E6;
   }
   ul, ol {
-    padding:0;
+    padding: 0;
   }
   ul li, ol li {
     list-style-type: none;
+  }
+  .list-group-item {
+    padding: 1em 0;
   }
   .active {
     transition-duration: 1s;
@@ -31,6 +57,17 @@
   <![endif]-->
 </head>
 <body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">{{{title_html}}}</a>
+    </div>
+    <a id="switch" class="btn btn-default navbar-btn">
+      <span class="glyphicon glyphicon-time"></span> 
+      <span class="off">Off</span>
+      <span class="on hidden">On</span>
+    </a>
+  </nav>
   
   <div class="jumbotron">
     <div class="container">
@@ -72,7 +109,9 @@
     </li>
     {{/list}}
   </ol>
+  
   <script type="text/javascript" charset="utf-8" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="thetheclockclock.js"></script>
 </body>
 </html>
