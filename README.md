@@ -22,6 +22,19 @@
 [Crowdsourcing The Clock]: <http://theclockmarclay.wikia.com/wiki/Crowdsourcing-The-Clock>
 
 
+## Data
+
+- time: 
+  - hours:
+  - minutes:
+  - seconds:
+- movie:
+  - title:
+  - imdb:
+- actor(s)
+- scene description:
+- comment:
+
 ## License
 
 Data from "[Crowdsourcing The Clock]" is used under the "[Creative Commons Attribution-Share Alike License 3.0 (Unported) (CC-BY-SA)](http://creativecommons.org/licenses/by-sa/3.0/)",
