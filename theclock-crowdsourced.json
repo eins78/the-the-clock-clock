@@ -3797,7 +3797,7 @@
   "tagline_html": "realtime metadata for Christian&nbsp;Marclay’s <i>'The&nbsp;Clock'</i>",
   "dataSource": "Crowdsourced Data",
   "dataSourceUrl": "http://theclockmarclay.wikia.com/wiki/Crowdsourcing-The-Clock",
-  "checkTime": "Check your time settings",
+  "checkTime": "Check the time",
   "checkTimeUrl": "http://time.is",
   "navHeight": 60
 }
