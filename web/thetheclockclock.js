@@ -5,7 +5,7 @@ $(document).ready(function () {
   var config = cfg = {
     "refreshRate": 1, // in seconds
     "navHeight": 60,
-    "debug": true
+    "debug": false
   };
   
   // 'global' set up
