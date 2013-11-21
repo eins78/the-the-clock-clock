@@ -5,7 +5,7 @@ $(document).ready(function () {
   var config = cfg = {
     "refreshRate": 1, // in seconds
     "navHeight": 60,
-    "debug": true
+    "debug": false
   };
   
   // 'global' set up
@@ -161,8 +161,8 @@ $(document).ready(function () {
   function getCurrentSlot(callback) {
     
     var now = (new Date()),
-        hour = now.getHours(),
-        minute = now.getMinutes(),
+        hour = now.getHours() || 0,
+        minute = now.getMinutes() || 0,
         $hourSlots = {},
         $currentSlot = {};
     
