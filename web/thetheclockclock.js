@@ -8,22 +8,25 @@ $(document).ready(function () {
     "debug": true
   };
   
-  // Workflow
-  //
   // 'global' set up
-  var following = false,
-      started   = false,
+  var following = false,  // default is OFF
+      // (jQuery) Objects
       $list = $("#list"),
       $btns = $("#switch").add("#start"),
+      $time = $("#time"),
       $currentSlot = {};
   
-  // buttons handlers
+  // attach UI handlers
   setupButtons();
+  setupClockUI();
+  
   // autostart if location says 'ON'
   if (window.location.hash === '#ON') {
     switchMode();
   }
   
+  // Workflow
+  //
   // runs in loop
   function follow() {
     
@@ -44,7 +47,9 @@ $(document).ready(function () {
 
       }
       
-      loop();
+      if (following) {
+        setTimeout(follow, cfg.refreshRate * 1000);
+      }
     
     });
   
@@ -52,17 +57,11 @@ $(document).ready(function () {
   
   // Functions
   // 
-  // loop
-  function loop() {
-    if (following) {
-      setTimeout(follow, cfg.refreshRate * 1000);
-    }
-  }
-  
+  // button setup
   function setupButtons() {
     $btns.click(function (e) {
       e.preventDefault;
-      console.log($(this).prop('href').toString())
+      // console.log($(this).prop('href').toString())
       switchMode();
     }).removeClass('hidden');
     
@@ -75,7 +74,6 @@ $(document).ready(function () {
     });
   }
   
-  // toggle the switch
   function setupClockUI() {
     var toggle = false;
     $time.removeClass('hidden');
@@ -99,19 +97,32 @@ $(document).ready(function () {
     
   }
   
+  // toggle the switch (when button is clicked)
   function switchMode() {
+    // if it's OF
     if (!following) {
+      // turn it ON
       following = true;
-      window.location.hash ='#follow'
-      follow();
-      $btns.prop('href', '#');
+      // rewrite buttons href
+      // $btns.prop('href', '#');
+      // set window URL
+      setLocation('ON');
+      // if we've got a target from previous run, 
       if ($currentSlot.length) {
+        // scroll to it.
         smoothScrollTo($currentSlot);
       }
-    } else {
+      // start the loop
+      follow();
+    }
+    // if it's ON
+    else {
+      // turn it OFF
       following = false;
-      window.location.hash ='#'
-      $btns.prop('href', '#follow');
+      // rewrite buttons href
+      // $btns.prop('href', '#follow');
+      // set window URL
+      setLocation('OFF');
     }
     
     $btns.find('.off').toggleClass('hidden');
@@ -168,16 +179,25 @@ $(document).ready(function () {
     
     // done
     callback($currentSlot);
-  };
+  }
   
   // scroll to an $element
   function smoothScrollTo($element) {
     
     $('html,body').animate({
       scrollTop: $element.offset().top - cfg.navHeight
+      // scrollTop: $element.offset().top
+      //   -(($(window).height()-cfg.navHeight)/2)
+      //   -(cfg.navHeight/2)
     }, 1500);
     
-  };
+  }
+  
+  function setLocation(str) {
+    if (typeof window.location.replace === 'function') {
+      window.location.replace('#' + (str || ""));
+    }
+  }
   
   function log(str, obj) {
     var data;
