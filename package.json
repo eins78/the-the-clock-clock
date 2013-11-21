@@ -1,12 +1,12 @@
 {
   "name": "clock-clock",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "clockclock.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node build.js"
   },
-  "author": "",
+  "author": "Max F. Albrecht <1@178.is>",
   "license": "MIT",
   "dependencies": {
     "fs-extra": "~0.8.1",
