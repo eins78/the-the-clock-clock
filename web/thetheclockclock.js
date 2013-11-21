@@ -76,6 +76,29 @@ $(document).ready(function () {
   }
   
   // toggle the switch
+  function setupClockUI() {
+    var toggle = false;
+    $time.removeClass('hidden');
+    
+    (function updateTime() {
+
+      var str = (new Date).toTimeString()
+        .replace(/(\d\d:\d\d).*$/, '$1')
+
+      if (toggle) {
+        str = str.replace(/:/, ' ');
+      }
+      toggle = !toggle;
+
+      // update UI
+      $time.find('kbd').html(str);
+      
+      // loop
+      setTimeout(updateTime, 1000);
+    }());
+    
+  }
+  
   function switchMode() {
     if (!following) {
       following = true;

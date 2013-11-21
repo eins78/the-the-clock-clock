@@ -32,6 +32,16 @@
     width: 3.5em;
     display: inline-block;
   }
+  #time {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    position: fixed;
+    top: 1em;
+    left: 30%;
+    right: 30%;
+    width: 40%;
+  }
   .jumbotron {
     border-bottom: 3px solid #DEE6E6;
   }
@@ -63,6 +73,9 @@
       <a class="navbar-brand" href="#">{{{title_html}}}</a>
     </div>
     <a id="switch" href="#follow" class="btn btn-default navbar-btn hidden">
+    <span id="time" href="#" class="hidden">
+      <kbd class="text-muted">00:00</kbd>
+    </span>
       <span class="glyphicon glyphicon-time"></span> 
       <span class="off">Off</span>
       <span class="on hidden">On</span>
