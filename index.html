@@ -13,7 +13,7 @@
     padding-bottom: 100%;
   }
   nav.navbar-fixed-top {
-    box-shadow: 0 0 10px hsla(180, 11%, 95%, 0.34);
+    box-shadow: 0 0 0.5em hsla(180, 11%, 95%, 0.67);
   }
   .navbar > * {
     float: left;
@@ -62,19 +62,19 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">The <i>'The&nbsp;Clock'</i> Clock</a>
     </div>
-    <a id="switch" class="btn btn-default navbar-btn">
+    <a id="switch" href="#follow" class="btn btn-default navbar-btn hidden">
       <span class="glyphicon glyphicon-time"></span> 
       <span class="off">Off</span>
       <span class="on hidden">On</span>
     </a>
   </nav>
   
-  <div class="jumbotron">
+  <div id="intro" class="jumbotron">
     <div class="container">
       <h1>The <i>'The&nbsp;Clock'</i> Clock</h1>
       <p>realtime metadata for Christian&nbsp;Marclay’s <i>'The&nbsp;Clock'</i></p>
       <p>
-        <a id="start" href="#follow" class="btn btn-primary btn-lg" role="button">
+        <a id="start" href="#follow" class="btn btn-primary btn-lg hidden" role="button">
           <span class="glyphicon glyphicon-time"></span> 
           <span class="off">Start</span>
           <span class="on hidden">Stop</span>
