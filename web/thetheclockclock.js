@@ -10,7 +10,7 @@ $(document).ready(function () {
   
   // Workflow
   //
-  // set up
+  // 'global' set up
   var following = false,
       started   = false,
       $list = $("#list"),
@@ -23,41 +23,47 @@ $(document).ready(function () {
   // runs in loop
   function follow() {
     
-    if (following) {
+    getCurrentSlot(function ($slot) {
+      log('slot', $slot);
       
-      getCurrentSlot(function ($slot) {
-        log('slot', $slot);
-      
+      if (!$slot.is($currentSlot)) {
+        
+        if ($currentSlot.removeClass) {
+          $currentSlot.removeClass('active');            
+        }
+    
         // highlight it
-        $list.find('.active').removeClass('active');
-      
         $slot.addClass('active');
         smoothScrollTo($slot);
+        
+        $currentSlot = $slot;
 
-        loop();
-      });
+      }
       
-    }
-    else {
       loop();
-    }
     
+    });
+  
   }
   
   // Functions
   // 
   // loop
-  function loop(argument) {
-    started = true;
-    setTimeout(follow, cfg.refreshRate * 1000);
+  function loop() {
+    if (following) {
+      setTimeout(follow, cfg.refreshRate * 1000);
+    }
   }
   
   function setupButtons() {
-    $btns.click(function (event) {
-      event.preventDefault;
+    $btns.click(function (e) {
+      e.preventDefault;
+      console.log($(this).prop('href').toString())
       switchMode();
-    });
-    $('a.navbar-brand').click(function () {
+    }).removeClass('hidden');
+    
+    $('a.navbar-brand').click(function (e) {
+      e.preventDefault;
       if (following) {
         switchMode();
       }
@@ -67,16 +73,27 @@ $(document).ready(function () {
   
   // toggle the switch
   function switchMode() {
-    if (!started) {
-      loop();
+    if (!following) {
+      following = true;
+      window.location.hash ='#follow'
+      follow();
+      $btns.prop('href', '#');
+      if ($currentSlot.length) {
+        smoothScrollTo($currentSlot);
+      }
+    } else {
+      following = false;
+      window.location.hash ='#'
+      $btns.prop('href', '#follow');
     }
-    following = !following;
+    
     $btns.find('.off').toggleClass('hidden');
     $btns.find('.on').toggleClass('hidden');
     
     $("#switch")
       .toggleClass('btn-default')
       .toggleClass('btn-primary');
+      
   }
   
   // find the current slot
