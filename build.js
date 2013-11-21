@@ -1,9 +1,17 @@
 var fs = require('fs-extra'),
     path = require('path'),
+    f = require('underscore'),
     lineReader = require('line-reader'),
     hogan = require("hogan.js");
 
-var res = [];
+var config = {
+      "title": "The \'The Clock\' Clock",
+      "title_html": "The <i>\'The&nbsp;Clock\'</i> Clock",
+      "tagline": "realtime metadata for Christian Marclay’s \'The Clock\'",
+      "tagline_html": "realtime metadata for Christian&nbsp;Marclay’s <i>\'The&nbsp;Clock\'</i>",
+      "navHeight": 60
+    },
+    res = [];
 
 // // what we want:
 // res = [
@@ -56,6 +64,8 @@ function parseEntry(line) {
 
 // function to build HTML page from list
 function outputHTML(data) {
+  
+  data = f.extend(data, config);
 
   var template = hogan.compile(fs.readFileSync("list.mustache").toString());
   var output = template.render(data);
