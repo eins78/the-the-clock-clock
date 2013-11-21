@@ -161,8 +161,8 @@ $(document).ready(function () {
   function getCurrentSlot(callback) {
     
     var now = (new Date()),
-        hour = now.getHours(),
-        minute = now.getMinutes(),
+        hour = now.getHours() || 0,
+        minute = now.getMinutes() || 0,
         $hourSlots = {},
         $currentSlot = {};
     

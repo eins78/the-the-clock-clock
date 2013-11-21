@@ -39,17 +39,17 @@ function parseEntry(line) {
   
   // ignore empty lines and parse errors
   if (data) {
-    var hour = data[1],
-        min  = data[2],
+    var hour = parseInt(data[1], 10),
+        min  = parseInt(data[2], 10),
         apm  = data[3],
         text = data[4];
   
     res.push({
       "time": {
-        "24hour": parseInt(hour, 10) + (apm==='PM' ? 12 : 0),
-        "hour": parseInt(hour, 10),
+        "24hour": hour + (apm === 'PM' ? 12 : (hour === 12 ? -12 : 0)),
+        "hour": hour,
         "min": parseInt(min, 10),
-        "timestamp": hour + ':' + min + ' ' + apm
+        "timestamp": (hour < 10 ? ('0' + hour.toString()) : (hour)) + ':' + (min < 10 ? ('0' + min.toString()) : (min)) + ' ' + apm
       },
       "text": text
     });
