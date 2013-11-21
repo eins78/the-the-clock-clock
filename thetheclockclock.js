@@ -37,14 +37,30 @@ $(document).ready(function () {
       
       if (!$slot.is($currentSlot)) {
         
-        if ($currentSlot.removeClass) {
-          $currentSlot.removeClass('active');            
+        if ($currentSlot.lenght) {
+          $currentSlot.removeClass('active');
+          $currentSlot.prop('id', '');
+        }
+        
+        if ($('#beforeActive')) {
+          $('#beforeActive').prop('id', '');
         }
     
         // highlight it
+        $slot.prev().prop('id', 'beforeActive')
         $slot.addClass('active');
+        
+        // on first launch, go there by ID
+        // (better mobile performance)
+        if (!$currentSlot.lenght) {
+          setLocation('beforeActive');
+          setLocation('ON');
+        }
+
+        // scroll smoothly to element
         smoothScrollTo($slot);
         
+        // save slot as currentSlot
         $currentSlot = $slot;
 
       }
