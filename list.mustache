@@ -97,6 +97,17 @@
       </p>
     </div>
   </div>
+  
+  <h2 class="row">
+    <span class="col-xs-2 text-muted text-right">
+      <span class="glyphicon glyphicon-list-alt"></span>
+    </span>
+    <span class="col-xs-10">
+      List
+      <small> › Licensed under <kbd>CC-BY-SA</kbd></small>
+    </span>
+  </h2>
+  
   <ol id="list" class="list-group">
     {{#list}}
     <li {{#time}}data-hour="{{24hour}}" data-minute="{{min}}"{{/time}}  class="list-group-item">
@@ -104,7 +115,7 @@
         {{#time}}
           <li class="col-xs-2 text-muted text-right"><kbd><small>{{timestamp}}</small></kbd></li>
         {{/time}}
-        <li class="col-xs-10">{{text}}</li>
+        <li class="col-xs-9">{{text}}</li>
       </ul>
     </li>
     {{/list}}
