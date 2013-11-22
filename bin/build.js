@@ -61,7 +61,7 @@ function outputHTML(data) {
   
   data = f.extend(data, config);
 
-  var template = hogan.compile(fs.readFileSync(path.join('list.mustache')).toString());
+  var template = hogan.compile(fs.readFileSync(path.join('templates', 'list.mustache')).toString());
   var output = template.render(data);
   
   fs.outputFileSync(path.join('web','index.html'), output);

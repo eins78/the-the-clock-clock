@@ -63,7 +63,7 @@
     </button>
   </nav>
   
-  <div id="intro" class="jumbotron">
+  <section id="intro" class="jumbotron">
     <div class="container">
       <h1>{{{title_html}}}</h1>
       <p>{{{tagline_html}}}</p>
@@ -95,30 +95,33 @@
         </a>
       </p>
     </div>
-  </div>
+  </section>
   
-  <h2 class="row">
-    <span class="col-xs-2 text-muted text-right">
-      <span class="glyphicon glyphicon-list-alt"></span>
-    </span>
-    <span class="col-xs-10">
-      List
-      <small> › Licensed under <kbd><a href="{{dataSourceUrl}}">CC-BY-SA</a></kbd></small>
-    </span>
-  </h2>
+  <section class="container">
+    <h2 class="row">
+      <span class="col-xs-2 text-muted text-right">
+        <span class="glyphicon glyphicon-list-alt"></span>
+      </span>
+      <span class="col-xs-10">
+        List
+        <small> › Licensed under <kbd><a href="{{dataSourceUrl}}">CC-BY-SA</a></kbd></small>
+      </span>
+    </h2>
   
-  <ol id="list" class="list-group">
-    {{#list}}
-    <li {{#time}}data-hour="{{24hour}}" data-minute="{{min}}"{{/time}}  class="list-group-item">
-      <ul class="row">
-        {{#time}}
-          <li class="col-xs-2 text-muted text-right"><kbd><small>{{timestamp}}</small></kbd></li>
-        {{/time}}
-        <li class="col-xs-9">{{text}}</li>
-      </ul>
-    </li>
-    {{/list}}
-  </ol>
+    <ol id="list" class="list-group">
+      {{#list}}
+      <li {{#time}}data-hour="{{24hour}}" data-minute="{{min}}"{{/time}}  class="list-group-item">
+        <ul class="row">
+          {{#time}}
+            <li class="col-xs-2 text-muted text-right"><kbd><small>{{timestamp}}</small></kbd></li>
+          {{/time}}
+          <li class="col-xs-9">{{text}}</li>
+        </ul>
+      </li>
+      {{/list}}
+    </ol>
+  
+  </section>
   
   <script type="text/javascript" charset="utf-8" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
