@@ -11,9 +11,11 @@ $(document).ready(function () {
   // 'global' set up
   var following = false,  // default is OFF
       runclock = true,
+      dark = false,
       // (jQuery) Objects
       $list = $("#list"),
       $btns = $("#switch").add("#start"),
+      $lbtn = $("#lightswitch"),
       $time = $("#time"),
       $currentSlot = {};
   
@@ -21,10 +23,27 @@ $(document).ready(function () {
   setupButtons();
   setupClockUI();
   appleMobileHelper();
-    
+  
+  // load state from URL
+  var UrlState = {};
+  
   // autostart if location says 'ON'
-  if (window.location.hash === '#ON') {
-    switchMode();
+  console.log(window.location.hash);
+  
+  if ((/#ON/).test(window.location.hash)) {
+    UrlState.follow = true;
+  }
+  
+  // dark mode if location says 'D'
+  if ((/#D/).test(window.location.hash)) {
+    UrlState.dark = true;
+  }
+  
+  if (UrlState.follow) {
+    switchMode(true);
+  }
+  if (true) {
+    lightSwitch(true);
   }
   
   // Workflow
@@ -53,8 +72,8 @@ $(document).ready(function () {
         // on first launch, go there by ID
         // (better mobile performance)
         if (!$currentSlot.lenght) {
-          setLocation('beforeActive');
-          setLocation('ON');
+          // setLocation('beforeActive');
+          // setLocation();
         }
 
         // scroll smoothly to element
@@ -77,6 +96,7 @@ $(document).ready(function () {
   // 
   // button setup
   function setupButtons() {
+    
     $btns.click(function (e) {
       e.preventDefault;
       // console.log($(this).prop('href').toString())
@@ -91,11 +111,11 @@ $(document).ready(function () {
       smoothScrollTo($('#intro'));
     });
     
-    $('#lightswitch').click(function (e) {
+    $lbtn.click(function (e) {
       e.preventDefault;
-      $(this).find('.on, .off').toggleClass('hidden');
       lightSwitch();
     });
+    
   }
   
   function setupClockUI() {
@@ -127,15 +147,12 @@ $(document).ready(function () {
   }
   
   // toggle the switch (when button is clicked)
-  function switchMode() {
+  function switchMode(force) {
+    if (force) { dark = !force }
     // if it's OF
     if (!following) {
       // turn it ON
       following = true;
-      // rewrite buttons href
-      // $btns.prop('href', '#');
-      // set window URL
-      setLocation('ON');
       // if we've got a target from previous run, 
       if ($currentSlot.length) {
         // scroll to it.
@@ -148,19 +165,16 @@ $(document).ready(function () {
     else {
       // turn it OFF
       following = false;
-      // rewrite buttons href
-      // $btns.prop('href', '#follow');
-      // set window URL
-      setLocation('OFF');
     }
     
-    $btns.find('.off').toggleClass('hidden');
-    $btns.find('.on').toggleClass('hidden');
+    $btns.find('.on, .off').toggleClass('hidden');
     
     $("#switch")
       .toggleClass('btn-default')
       .toggleClass('btn-primary');
       
+    // set window URL
+    setLocation();
   }
   
   // find the current slot
@@ -214,7 +228,7 @@ $(document).ready(function () {
   function smoothScrollTo($element) {
     
     $('html,body').animate({
-      scrollTop: $element.offset().top - cfg.navHeight
+      scrollTop: $element.offset().top - cfg.navHeight - 10
       // scrollTop: $element.offset().top
       //   -(($(window).height()-cfg.navHeight)/2)
       //   -(cfg.navHeight/2)
@@ -224,7 +238,12 @@ $(document).ready(function () {
   
   function setLocation(str) {
     if (typeof window.location.replace === 'function') {
-      window.location.replace('#' + (str || ""));
+      if (str) {
+        window.location.replace('#' + str);
+      }
+      else {
+        window.location.replace((dark ? '#D' : '') + (following ? '#ON' : '#OFF'));
+      }
     }
   }
   
@@ -241,8 +260,13 @@ $(document).ready(function () {
     }
   }
   
-  function lightSwitch() {
+  function lightSwitch(force) {
+    if (force) { dark = !force }
+    dark = !dark;
+    
     $('body').toggleClass('dark');
+    $lbtn.find('.on, .off').toggleClass('hidden');
+    setLocation();
   }
   
   function log(str, obj) {

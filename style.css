@@ -1,3 +1,16 @@
+body * {
+  transition-duration: 0.5s;
+  transition-property: color, background-color;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", "Lucida Grande", Tahoma, Verdana, "Helvetica Neue", Helvetica, Aria, sans-serif;
+}
 body {
   font-size: 1.6em;
   padding-top: 60px;
@@ -50,10 +63,6 @@ ol li {
 .list-group-item {
   padding: 1.5em 0 2em;
 }
-.active {
-  transition-duration: 1s;
-  transition-property: all;
-}
 body.dark,
 body.dark .jumbotron,
 body.dark .list-group-item,
@@ -65,15 +74,37 @@ body.dark,
 body.dark .jumbotron,
 body.dark .list-group-item,
 body.dark .navbar-default,
-body.dark .navbar-brand,
-body.dark .jumbotron .navbar-brand,
-body.dark .list-group-item .navbar-brand,
-body.dark .navbar-default .navbar-brand,
+body.dark a.navbar-brand,
+body.dark .jumbotron a.navbar-brand,
+body.dark .list-group-item a.navbar-brand,
+body.dark .navbar-default a.navbar-brand,
 body.dark #time *,
 body.dark .jumbotron #time *,
 body.dark .list-group-item #time *,
-body.dark .navbar-default #time * {
+body.dark .navbar-default #time *,
+body.dark .jumbotron,
+body.dark .jumbotron .jumbotron,
+body.dark .list-group-item .jumbotron,
+body.dark .navbar-default .jumbotron {
   color: #959fa3;
+}
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
+  color: #959fa3;
+}
+body.dark .jumbotron p {
+  color: #45575f;
+}
+body.dark .btn-default {
+  background-color: #45575f;
+}
+body.dark .btn-primary {
+  color: #ecefed;
+  background-color: #849194;
 }
 body.dark nav.navbar-default {
   background-color: #161d1d;
