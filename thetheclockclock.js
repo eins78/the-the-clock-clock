@@ -37,7 +37,7 @@ $(document).ready(function () {
       
       if (!$slot.is($currentSlot)) {
         
-        if ($currentSlot.lenght) {
+        if ($currentSlot.length) {
           $currentSlot.removeClass('active');
           $currentSlot.prop('id', '');
         }
