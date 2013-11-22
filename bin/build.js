@@ -4,7 +4,7 @@ var fs = require('fs-extra'),
     lineReader = require('line-reader'),
     hogan = require("hogan.js");
 
-var config = require('./config.json'),
+var config = require(path.join('..', 'config.json')),
     res = [];
 
 // // what we want:
@@ -16,7 +16,7 @@ var config = require('./config.json'),
 // ];
 
 // read all lines:
-lineReader.eachLine('crowdlist.txt', function(line) {
+lineReader.eachLine(path.join('crowdlist.txt'), function(line) {
   parseEntry(line);
 }).then(function () {
   console.log("I'm done!!");
@@ -61,7 +61,7 @@ function outputHTML(data) {
   
   data = f.extend(data, config);
 
-  var template = hogan.compile(fs.readFileSync("list.mustache").toString());
+  var template = hogan.compile(fs.readFileSync(path.join('list.mustache')).toString());
   var output = template.render(data);
   
   fs.outputFileSync(path.join('web','index.html'), output);

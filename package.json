@@ -1,10 +1,13 @@
 {
   "name": "clock-clock",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "realtime metadata for Christian Marclay's 'The Clock'",
   "main": "clockclock.js",
   "scripts": {
-    "test": "node build.js"
+    "test": "node build.js",
+    "postinstall": "./bin/clone-pages.sh",
+    "build": "./bin/less.sh && node ./bin/build.js",
+    "deploy": "npm run build && ./bin/github-pages.sh"
   },
   "author": "Max F. Albrecht <1@178.is>",
   "license": "MIT",
