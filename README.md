@@ -8,7 +8,7 @@
 
 > #### Demo: [Web]
 
-[Web]: <http://code.178.is/the-the-clock-clock/>
+[Web]: <http://clockclock.ars.is>
 
 
 ## Links
