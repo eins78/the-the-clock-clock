@@ -23,6 +23,10 @@ nav.navbar-fixed-top {
   width: 3.5em;
   display: inline-block;
 }
+#lightswitch {
+  width: 6.5em
+}
+
 #time {
   text-align: center;
   font-size: 1em;
@@ -48,4 +52,39 @@ ul li, ol li {
 .active {
   transition-duration: 1s;
   transition-property: all;
+}
+
+body.dark {
+  
+  &, & .jumbotron, & .list-group-item, .navbar-default {
+    border-color: #455860;
+    background-color: black;
+    
+    &, .navbar-brand, #time * {
+      color: hsl(193, 7%, 61%);
+    }
+  }
+  
+  nav.navbar-default {
+    background-color: hsla(180, 14%, 10%, 1);
+  }
+  
+  nav.navbar-fixed-top {
+    box-shadow: 0 0 0.5em hsla(0, 0%, 0%, 0.67);
+  }
+  
+  
+  .text-muted {
+    color: hsl(0, 0%, 20%);
+  }
+  
+  .active {
+    color: white;
+    background-color: #455860;
+    
+    .text-muted {
+      color: hsl(193, 7%, 61%);
+    }
+  }
+  
 }
