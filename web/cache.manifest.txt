@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v0.1.1
+# v0.2.0
 index.html
 thetheclockclock.js
 http://code.divshot.com/bootstrap-theme-cirrus/dist/css/bootstrap.css
