@@ -6,11 +6,6 @@
   <link rel="stylesheet" href="http://code.divshot.com/bootstrap-theme-cirrus/dist/css/bootstrap.css">
   <!-- local styles -->
   <link rel="stylesheet" href="style.css">
-  <style type="text/css" media="screen">
-  body {
-    padding-top: 60px;
-  }
-  </style>
   
   <!-- apple webapp stuff -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -72,18 +67,23 @@
     <div class="container">
       <h1>The <i>'The&nbsp;Clock'</i> Clock</h1>
       <p>realtime metadata for Christian&nbsp;Marclay’s <i>'The&nbsp;Clock'</i></p>
+      
       <p>
         <button id="start" href="#" class="btn btn-primary btn-lg hidden" role="button">
           <span class="glyphicon glyphicon-time"></span> 
           <span class="off">Start</span>
           <span class="on hidden">Stop</span>
-          
+        </button>
+        <button id="lightswitch" href="#" class="btn btn-primary btn-lg xhidden" role="button"> 
+          <span class="off"><span class="glyphicon glyphicon-eye-open"></span> Dark</span>
+          <span class="on hidden"><span class="glyphicon glyphicon-eye-close"></span> Light</span>
         </button>
         <a href="https://github.com/eins78/the-the-clock-clock#readme" class="btn btn-default btn-lg" role="button">
           <span class="glyphicon glyphicon-new-window"></span>
           About
         </a>
       </p>
+      
       <p>
         <a href="http://theclockmarclay.wikia.com/wiki/Crowdsourcing-The-Clock" class="btn btn-default" role="button">
           <span class="glyphicon glyphicon-new-window"></span>

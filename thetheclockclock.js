@@ -90,6 +90,12 @@ $(document).ready(function () {
       }
       smoothScrollTo($('#intro'));
     });
+    
+    $('#lightswitch').click(function (e) {
+      e.preventDefault;
+      $(this).find('.on, .off').toggleClass('hidden');
+      lightSwitch();
+    });
   }
   
   function setupClockUI() {
@@ -235,6 +241,10 @@ $(document).ready(function () {
     }
   }
   
+  function lightSwitch() {
+    $('body').toggleClass('dark');
+  }
+  
   function log(str, obj) {
     var data;
     if (cfg.debug) {
@@ -249,4 +259,5 @@ $(document).ready(function () {
       console.log(str + (data ? ": " + data : ""), obj ? obj : null);
     }
   }
+  
 });

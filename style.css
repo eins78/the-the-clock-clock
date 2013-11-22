@@ -4,7 +4,7 @@ body {
   padding-bottom: 100%;
 }
 nav.navbar-fixed-top {
-  box-shadow: 0 0 0.5em hsla(180, 11%, 95%, 0.67);
+  box-shadow: 0 0 0.5em rgba(241, 244, 244, 0.67);
 }
 .navbar > * {
   float: left;
@@ -23,6 +23,9 @@ nav.navbar-fixed-top {
   width: 3.5em;
   display: inline-block;
 }
+#lightswitch {
+  width: 6.5em;
+}
 #time {
   text-align: center;
   font-size: 1em;
@@ -36,10 +39,12 @@ nav.navbar-fixed-top {
 .jumbotron {
   border-bottom: 3px solid #DEE6E6;
 }
-ul, ol {
+ul,
+ol {
   padding: 0;
 }
-ul li, ol li {
+ul li,
+ol li {
   list-style-type: none;
 }
 .list-group-item {
@@ -48,4 +53,41 @@ ul li, ol li {
 .active {
   transition-duration: 1s;
   transition-property: all;
+}
+body.dark,
+body.dark .jumbotron,
+body.dark .list-group-item,
+body.dark .navbar-default {
+  border-color: #455860;
+  background-color: black;
+}
+body.dark,
+body.dark .jumbotron,
+body.dark .list-group-item,
+body.dark .navbar-default,
+body.dark .navbar-brand,
+body.dark .jumbotron .navbar-brand,
+body.dark .list-group-item .navbar-brand,
+body.dark .navbar-default .navbar-brand,
+body.dark #time *,
+body.dark .jumbotron #time *,
+body.dark .list-group-item #time *,
+body.dark .navbar-default #time * {
+  color: #959fa3;
+}
+body.dark nav.navbar-default {
+  background-color: #161d1d;
+}
+body.dark nav.navbar-fixed-top {
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.67);
+}
+body.dark .text-muted {
+  color: #333333;
+}
+body.dark .active {
+  color: white;
+  background-color: #455860;
+}
+body.dark .active .text-muted {
+  color: #959fa3;
 }
