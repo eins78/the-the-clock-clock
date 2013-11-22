@@ -1,3 +1,11 @@
+body * {
+  transition-duration: 0.5s;
+  transition-property: color, background-color;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", "Lucida Grande", Tahoma, Verdana, "Helvetica Neue", Helvetica, Aria, sans-serif;
+}
 body {
   font-size: 1.6em;
   padding-top: 60px;
@@ -49,20 +57,36 @@ ul li, ol li {
 .list-group-item {
   padding: 1.5em 0 2em;
 }
-.active {
-  transition-duration: 1s;
-  transition-property: all;
-}
 
 body.dark {
+  
+  @benzol: hsl(198, 16%, 32%);
+  @gray: hsl(193, 7%, 61%);
   
   &, & .jumbotron, & .list-group-item, .navbar-default {
     border-color: #455860;
     background-color: black;
     
-    &, .navbar-brand, #time * {
-      color: hsl(193, 7%, 61%);
+    &, a.navbar-brand, #time *, .jumbotron {
+      color: @gray;
     }
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: @gray;
+  }
+  
+  .jumbotron p {
+    color: @benzol;
+  }
+  
+  .btn-default {
+    background-color: hsl(198, 16%, 32%);
+  }
+  
+  .btn-primary {
+    color: hsl(140, 9%, 93%);
+    background-color: hsl(194, 7%, 55%);
   }
   
   nav.navbar-default {
