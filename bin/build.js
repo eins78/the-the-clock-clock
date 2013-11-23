@@ -21,7 +21,7 @@ lineReader.eachLine(path.join('crowdlist.txt'), function(line) {
 }).then(function () {
   console.log("I'm done!!");
   res = { "list": res };
-  console.log(JSON.stringify(res));
+  // console.log(JSON.stringify(res));
   fs.outputJSON(path.join('web','theclock-crowdsourced.json'), res);
   outputHTML(res);
 });
@@ -46,7 +46,7 @@ function parseEntry(line) {
   
     res.push({
       "time": {
-        "24hour": hour + (apm === 'PM' ? 12 : (hour === 12 ? -12 : 0)),
+        "24hour": hour + (apm === 'PM' ? 12 : 0) - (hour === 12 ? 12 : 0),
         "hour": hour,
         "min": parseInt(min, 10),
         "timestamp": (hour < 10 ? ('0' + hour.toString()) : (hour)) + ':' + (min < 10 ? ('0' + min.toString()) : (min)) + ' ' + apm
