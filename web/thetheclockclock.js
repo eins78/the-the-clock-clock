@@ -42,7 +42,7 @@ $(document).ready(function () {
   if (UrlState.follow) {
     switchMode(true);
   }
-  if (true) {
+  if (UrlState.dark) {
     lightSwitch(true);
   }
   
