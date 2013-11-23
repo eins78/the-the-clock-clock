@@ -1,13 +1,33 @@
 CACHE MANIFEST
-# v0.2.2
-index.html
-thetheclockclock.js
-http://code.divshot.com/bootstrap-theme-cirrus/dist/css/bootstrap.css
-https://code.jquery.com/jquery-1.10.2.min.js
-https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js
-http://code.divshot.com/bootstrap-theme-cirrus/dist/fonts/glyphicons-halflings-regular.woff
-http://code.divshot.com/bootstrap-theme-cirrus/dist/fonts/glyphicons-halflings-regular.ttf
-http://code.divshot.com/bootstrap-theme-cirrus/dist/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular
-http://code.divshot.com/bootstrap-theme-cirrus/dist/fonts/glyphicons-halflings-regular.eot
-http://code.divshot.com/bootstrap-theme-cirrus/dist/fonts/glyphicons-halflings-regular.eot?#iefix
-http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600
+# v0.2.3
+/favicon.ico
+# Styles
+/style.css
+/bower_components/bootstrap-theme-cirrus/dist/css/bootstrap.css
+# Scripts
+/thetheclockclock.js
+/bower_components/jquery/jquery.min.js
+/bower_components/bootstrap/dist/js/bootstrap.min.js
+# Webfonts
+/bower_components/bootstrap-theme-cirrus/dist/fonts/glyphicons-halflings-regular.woff
+/bower_components/bootstrap-theme-cirrus/dist/fonts/glyphicons-halflings-regular.ttf
+/bower_components/bootstrap-theme-cirrus/dist/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular
+/bower_components/bootstrap-theme-cirrus/dist/fonts/glyphicons-halflings-regular.eot
+/bower_components/bootstrap-theme-cirrus/dist/fonts/glyphicons-halflings-regular.eot?#iefix
+/webfonts/opensans_bold_macroman/stylesheet.css
+/webfonts/opensans_bolditalic_macroman/stylesheet.css
+/webfonts/opensans_italic_macroman/stylesheet.css
+/webfonts/opensans_light_macroman/stylesheet.css
+/webfonts/opensans_lightitalic_macroman/stylesheet.css
+/webfonts/opensans_regular_macroman/stylesheet.css
+/webfonts/opensanscondensed_bold_macroman/stylesheet.css
+/webfonts/opensanscondensed_light_macroman/stylesheet.css
+/webfonts/opensanscondensed_lightitalic_macroman/stylesheet.css
+# IE Polyfills
+/bower_components/html5shiv/dist/html5shiv.js
+/bower_components/respond/respond.min.js
+# iOS assets
+/touch-icon-iphone.png
+/touch-icon-ipad.png
+/touch-icon-iphone-retina.png
+/touch-icon-ipad-retina.png

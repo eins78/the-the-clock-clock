@@ -1694,7 +1694,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 0,
         "timestamp": "12:00 PM"
@@ -1703,7 +1703,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 1,
         "timestamp": "12:01 PM"
@@ -1712,7 +1712,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 4,
         "timestamp": "12:04 PM"
@@ -1721,7 +1721,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 5,
         "timestamp": "12:05 PM"
@@ -1730,7 +1730,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 6,
         "timestamp": "12:06 PM"
@@ -1739,7 +1739,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 7,
         "timestamp": "12:07 PM"
@@ -1748,7 +1748,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 8,
         "timestamp": "12:08 PM"
@@ -1757,7 +1757,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 9,
         "timestamp": "12:09 PM"
@@ -1766,7 +1766,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 12,
         "timestamp": "12:12 PM"
@@ -1775,7 +1775,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 13,
         "timestamp": "12:13 PM"
@@ -1784,7 +1784,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 14,
         "timestamp": "12:14 PM"
@@ -1793,7 +1793,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 15,
         "timestamp": "12:15 PM"
@@ -1802,7 +1802,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 16,
         "timestamp": "12:16 PM"
@@ -1811,7 +1811,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 20,
         "timestamp": "12:20 PM"
@@ -1820,7 +1820,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 21,
         "timestamp": "12:21 PM"
@@ -1829,7 +1829,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 22,
         "timestamp": "12:22 PM"
@@ -1838,7 +1838,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 23,
         "timestamp": "12:23 PM"
@@ -1847,7 +1847,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 24,
         "timestamp": "12:24 PM"
@@ -1856,7 +1856,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 25,
         "timestamp": "12:25 PM"
@@ -1865,7 +1865,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 28,
         "timestamp": "12:28 PM"
@@ -1874,7 +1874,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 30,
         "timestamp": "12:30 PM"
@@ -1883,7 +1883,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 31,
         "timestamp": "12:31 PM"
@@ -1892,7 +1892,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 32,
         "timestamp": "12:32 PM"
@@ -1901,7 +1901,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 34,
         "timestamp": "12:34 PM"
@@ -1910,7 +1910,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 36,
         "timestamp": "12:36 PM"
@@ -1919,7 +1919,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 38,
         "timestamp": "12:38 PM"
@@ -1928,7 +1928,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 40,
         "timestamp": "12:40 PM"
@@ -1937,7 +1937,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 45,
         "timestamp": "12:45 PM"
@@ -1946,7 +1946,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 50,
         "timestamp": "12:50 PM"
@@ -1955,7 +1955,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 55,
         "timestamp": "12:55 PM"
@@ -1964,7 +1964,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 56,
         "timestamp": "12:56 PM"
@@ -1973,7 +1973,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 58,
         "timestamp": "12:58 PM"
@@ -1982,7 +1982,7 @@
     },
     {
       "time": {
-        "24hour": 24,
+        "24hour": 12,
         "hour": 12,
         "min": 59,
         "timestamp": "12:59 PM"

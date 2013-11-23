@@ -1,0 +1,24 @@
+{
+  "name": "bootstrap-theme-cirrus",
+  "version": "0.3.0",
+  "main": "dist/bootstrap.css",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.0.0"
+  },
+  "_release": "0.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.0",
+    "commit": "dd33ddaeba2848838b9ebfd8b8ec5a2ee5183d70"
+  },
+  "_source": "/Users/mfa/ART/clockclock/bootstrap-theme-cirrus",
+  "_target": "~0.3.0",
+  "_originalSource": "./bootstrap-theme-cirrus"
+}
