@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node build.js",
     "postinstall": "./bin/clone-pages.sh",
-    "build": "./bin/less.sh && node ./bin/build.js",
+    "build": "cp -R bower_components web/. && ./bin/less.sh&& node ./bin/build.js",
     "deploy": "npm run build && ./bin/github-pages.sh"
   },
   "author": "Max F. Albrecht <1@178.is>",
